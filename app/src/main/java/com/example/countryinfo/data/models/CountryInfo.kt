@@ -1,57 +1,80 @@
 package com.example.countryinfo.data.models
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverter
+import com.google.gson.Gson
+import com.google.gson.annotations.SerializedName
+import com.google.gson.reflect.TypeToken
+import java.lang.reflect.Type
+import java.security.acl.Owner
 
 
 @Entity(tableName = "countryInfoTable")
 data class CountryInfo(
+
+    @ColumnInfo(name = "alpha2Code")
+    @SerializedName("alpha2Code")
     val alpha2Code: String,
+
+    @ColumnInfo(name = "alpha3Code")
+    @SerializedName("alpha3Code")
     val alpha3Code: String,
+
+    @ColumnInfo(name = "area")
+    @SerializedName("area")
     val area: Double,
+
+    @ColumnInfo(name = "capital")
+    @SerializedName("capital")
     val capital: String,
-    val cioc: String,
+
+    @ColumnInfo(name = "cioc")
+    @SerializedName("cioc")
+    val cioc: String?,
+
+    @ColumnInfo(name = "demonym")
+    @SerializedName("demonym")
     val demonym: String,
+
+    @ColumnInfo(name = "flag")
+    @SerializedName("flag")
     val flag: String,
+
+    @ColumnInfo(name = "gini")
+    @SerializedName("gini")
     val gini: Double,
+
+    @ColumnInfo(name = "name")
+    @SerializedName("name")
     val name: String,
+
+    @ColumnInfo(name = "nativeName")
+    @SerializedName("nativeName")
     val nativeName: String,
-    val numericCode: String,
+
+    @ColumnInfo(name = "numericCode")
+    @SerializedName("numericCode")
+    val numericCode: String?,
+
+    @ColumnInfo(name = "population")
+    @SerializedName("population")
     val population: Int,
+
+    @ColumnInfo(name = "region")
+    @SerializedName("region")
     val region: String,
+
+    @ColumnInfo(name = "subregion")
+    @SerializedName("subregion")
     val subregion: String,
-    val translations: Translations
+
 ){
     @PrimaryKey(autoGenerate = true)
-    var id:Int?= null
+    @ColumnInfo(name = "id")var id:Int?= 0
 }
 
 
 
 
-//data class CountryInfoItem(
-//    val alpha2Code: String,
-//    val alpha3Code: String,
-//    val altSpellings: List<String>,
-//    val area: Double,
-//    val borders: List<String>,
-//    val callingCodes: List<String>,
-//    val capital: String,
-//    val cioc: String,
-//    val currencies: List<Currency>,
-//    val demonym: String,
-//    val flag: String,
-//    val gini: Double,
-//    val languages: List<Language>,
-//    val latlng: List<Double>,
-//    val name: String,
-//    val nativeName: String,
-//    val numericCode: String,
-//    val population: Int,
-//    val region: String,
-//    val regionalBlocs: List<RegionalBloc>,
-//    val subregion: String,
-//    val timezones: List<String>,
-//    val topLevelDomain: List<String>,
-//    val translations: Translations
-//)
